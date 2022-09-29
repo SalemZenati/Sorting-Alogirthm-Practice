@@ -23,6 +23,31 @@ class DrawInformation:
     MEDIUM_FONT = pygame.font.SysFont('Inkfree', 35)
     LARGE_FONT = pygame.font.SysFont('Inkfree', 50)
 
+from cgitb import text
+from msilib.schema import Font
+import pygame
+import random
+import math
+from tkinter import *
+pygame.init()
+
+class DrawInformation:
+    BLACK = 0, 0, 0
+    WHITE = 255, 255, 255
+    GREEN = 0, 255, 0
+    RED = 255, 0, 0
+    BACKGROUND_COLOR = WHITE
+
+    GRADIENTS = [
+        (128, 128, 128),
+        (160, 160, 160),
+        (192, 192, 192)
+    ]
+
+    FONT = pygame.font.SysFont('Inkfree', 20)
+    MEDIUM_FONT = pygame.font.SysFont('Inkfree', 35)
+    LARGE_FONT = pygame.font.SysFont('Inkfree', 50)
+
     SIDE_PAD = 100
     TOP_PAD = 150
 
@@ -49,7 +74,7 @@ def draw(draw_info, algo_name, ascending):
     
     draw_info.window.fill(draw_info.BACKGROUND_COLOR)
 
-    title = draw_info.LARGE_FONT.render(f"{algo_name} - {'Ascending' if ascending else 'Descending'}", 1, draw_info.GREEN)
+    title = draw_info.LARGE_FONT.render(f"{algo_name} - {'Ascending' if ascending else 'Descending'}", 1, draw_info.RED)
     draw_info.window.blit(title, (draw_info.width/2 - title.get_width()/2 , 5))
 
     controls = draw_info.FONT.render("R - Reset | A - Ascending | D - Descending", 1, draw_info.BLACK)
